@@ -1,5 +1,5 @@
 # IPTC NewsML G2 Model 
-```IPTC NewsML G2 Model``` is a Model (written in Java) to create and process the IPTC NewsML G2. IPTC NewsML G2 is a single format for exchanging text, images, video, audio, events and packages. 
+```IPTC NewsML G2 Model``` is a Java Model to create and process the IPTC NewsML G2. IPTC NewsML G2 is a single format for exchanging text, images, video, audio, events and packages. 
 The IPTC is the global standards body of the news media.
 
 ## Continuous integration
