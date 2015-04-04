@@ -40,6 +40,8 @@ public class AnyItem implements Serializable, Cloneable
 
     private Set<CatalogRef> catalogRef = new HashSet<CatalogRef>();
 
+    private ItemMeta itemMeta;
+
     @NotNull
     private String standard;
 
@@ -71,6 +73,17 @@ public class AnyItem implements Serializable, Cloneable
     {
         this.catalogRef = catalogRef;
 
+    }
+
+    public void setItemMeta(ItemMeta itemMeta)
+    {
+        this.itemMeta = itemMeta;
+    }
+    
+    @XmlElement()
+    public ItemMeta getItemMeta()
+    {
+        return itemMeta;
     }
 
     @XmlAttribute()
@@ -156,4 +169,5 @@ public class AnyItem implements Serializable, Cloneable
         this.dir = dir;
 
     }
+
 }

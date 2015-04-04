@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlElement;
  * @see <a
  *      href="http://www.iptc.org/std/NewsML-G2/2.19/specification/XML-Schema-Doc-Power/ItemMetadata.html">ItemMetadata</a>
  */
-public class ItemMetadata implements Serializable, Cloneable
+public class ItemMeta implements Serializable, Cloneable
 {
     private static final long serialVersionUID = 1L;
 
@@ -59,7 +59,7 @@ public class ItemMetadata implements Serializable, Cloneable
     @NotNull
     private Qcode service;
 
-    public ItemMetadata()
+    public ItemMeta()
     {
     }
 

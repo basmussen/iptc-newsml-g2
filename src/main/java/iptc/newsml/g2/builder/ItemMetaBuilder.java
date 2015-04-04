@@ -20,7 +20,7 @@ package iptc.newsml.g2.builder;
  * #L%
  */
 
-import iptc.newsml.g2.model.ItemMetadata;
+import iptc.newsml.g2.model.ItemMeta;
 import java.util.Calendar;
 
 /**
@@ -28,9 +28,9 @@ import java.util.Calendar;
  * 
  * @see <a
  *      href="http://www.iptc.org/std/NewsML-G2/2.19/specification/XML-Schema-Doc-Power/ItemMetadata.html">ItemMetadata</a>
- * @see ItemMetadata
+ * @see ItemMeta
  */
-public class ItemMetadataBuilder
+public class ItemMetaBuilder
 {
 
     private Calendar versionCreated;
@@ -47,64 +47,64 @@ public class ItemMetadataBuilder
     /**
      * Static factory method for ItemMetadata
      */
-    public static ItemMetadataBuilder itemMetadata()
+    public static ItemMetaBuilder itemMetadata()
     {
-        return new ItemMetadataBuilder();
+        return new ItemMetaBuilder();
     }
 
-    public ItemMetadataBuilder()
+    public ItemMetaBuilder()
     {
     }
 
-    public ItemMetadataBuilder versionCreated(Calendar val)
+    public ItemMetaBuilder versionCreated(Calendar val)
     {
         this.versionCreated = val;
         return this;
     }
 
-    public ItemMetadataBuilder firstCreated(Calendar val)
+    public ItemMetaBuilder firstCreated(Calendar val)
     {
         this.firstCreated = val;
         return this;
     }
 
-    public ItemMetadataBuilder embargoed(Calendar val)
+    public ItemMetaBuilder embargoed(Calendar val)
     {
         this.embargoed = val;
         return this;
     }
 
-    public ItemMetadataBuilder itemClass(QcodeBuilder itemClass)
+    public ItemMetaBuilder itemClass(QcodeBuilder itemClass)
     {
         this.itemClass = itemClass;
         return this;
     }
 
-    public ItemMetadataBuilder pubStatus(QcodeBuilder pubStatus)
+    public ItemMetaBuilder pubStatus(QcodeBuilder pubStatus)
     {
         this.pubStatus = pubStatus;
         return this;
     }
 
-    public ItemMetadataBuilder role(QcodeBuilder role)
+    public ItemMetaBuilder role(QcodeBuilder role)
     {
         this.role = role;
         return this;
     }
 
-    public ItemMetadataBuilder generator(VersionedStringBuilder generator)
+    public ItemMetaBuilder generator(VersionedStringBuilder generator)
     {
         this.generator = generator;
         return this;
     }
 
-    public ItemMetadataBuilder profile(VersionedStringBuilder profile)
+    public ItemMetaBuilder profile(VersionedStringBuilder profile)
     {
         this.profile = profile;
         return this;
     }
 
-    public ItemMetadataBuilder service(QcodeBuilder service)
+    public ItemMetaBuilder service(QcodeBuilder service)
     {
         this.service = service;
         return this;
@@ -158,9 +158,9 @@ public class ItemMetadataBuilder
     /**
      * @return new ItemMetadata instance
      */
-    public ItemMetadata build()
+    public ItemMeta build()
     {
-        ItemMetadata obj = new ItemMetadata();
+        ItemMeta obj = new ItemMeta();
         if (itemClass != null)
         {
             obj.setItemClass(itemClass.build());

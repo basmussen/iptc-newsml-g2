@@ -36,6 +36,9 @@ public class AnyItemBuilder
 {
 
     private Set<CatalogRefBuilder> catalogRef = new HashSet<CatalogRefBuilder>();
+    // TODO add support hopHistory
+    // TODO add support rightsInfo
+    private ItemMetaBuilder itemMeta;
     private String standard;
     private String standardversion;
     private String conformance;
@@ -59,6 +62,12 @@ public class AnyItemBuilder
     public AnyItemBuilder catalogRef(Set<CatalogRefBuilder> val)
     {
         this.catalogRef = val;
+        return this;
+    }
+
+    public AnyItemBuilder itemMeta(ItemMetaBuilder val)
+    {
+        this.itemMeta = val;
         return this;
     }
 
@@ -115,6 +124,11 @@ public class AnyItemBuilder
         return catalogRef;
     }
 
+    public ItemMetaBuilder getItemMeta()
+    {
+        return itemMeta;
+    }
+
     public String getStandard()
     {
         return standard;
@@ -157,13 +171,16 @@ public class AnyItemBuilder
     public AnyItem build() throws Exception
     {
         AnyItem obj = new AnyItem();
-
         if (catalogRef != null)
         {
             for (CatalogRefBuilder item : catalogRef)
             {
                 obj.getCatalogRef().add(item.build());
             }
+        }
+        if (itemMeta != null)
+        {
+            obj.setItemMeta(itemMeta.build());
         }
         obj.setStandard(standard);
         obj.setStandardversion(standardversion);
