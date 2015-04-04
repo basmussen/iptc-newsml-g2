@@ -70,7 +70,7 @@ public class CalendarBuilderTest
         sdf.setCalendar(cal);
         String format = sdf.format(cal.getTime());
 
-        assertEquals("Mo, 29 Dez 2014 00:00:00 +0100", format);
+        assertEquals("Mo, 29 Dez 2014 06:00:00 +0100", format);
     }
 
 }
