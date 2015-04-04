@@ -41,6 +41,7 @@ public class ContentMetaBuilder
     private CalendarBuilder contentModified;
     private AuthorBuilder creator;
     private AuthorBuilder contributor;
+    private Set<SubjectBuilder> subject = new HashSet<>();
     private Set<KeywordBuilder> keyword = new HashSet<KeywordBuilder>();
 
     /**
@@ -85,6 +86,18 @@ public class ContentMetaBuilder
         return this;
     }
 
+    public ContentMetaBuilder subject(Set<SubjectBuilder> val)
+    {
+        this.subject = val;
+        return this;
+    }
+
+    public ContentMetaBuilder addSubject(SubjectBuilder val)
+    {
+        this.getSubject().add(val);
+        return this;
+    }
+
     public ContentMetaBuilder keyword(Set<KeywordBuilder> val)
     {
         this.keyword = val;
@@ -110,6 +123,11 @@ public class ContentMetaBuilder
     public CalendarBuilder getContentModified()
     {
         return contentModified;
+    }
+
+    public Set<SubjectBuilder> getSubject()
+    {
+        return subject;
     }
 
     public Set<KeywordBuilder> getKeyword()
@@ -142,6 +160,13 @@ public class ContentMetaBuilder
         if (contributor != null)
         {
             obj.setContributor(contributor.build());
+        }
+        if (subject != null)
+        {
+            for (SubjectBuilder item : subject)
+            {
+                obj.getSubject().add(item.build());
+            }
         }
         if (keyword != null)
         {

@@ -20,7 +20,6 @@ package iptc.newsml.g2.model;
  * #L%
  */
 
-
 import java.io.Serializable;
 import java.lang.Cloneable;
 import javax.validation.constraints.NotNull;
@@ -59,7 +58,7 @@ public class Name implements Serializable, Cloneable
         this.role = role;
     }
 
-    @XmlAttribute()
+    @XmlAttribute(namespace = "http://www.w3.org/XML/1998/namespace")
     private String getLang()
     {
         return lang;

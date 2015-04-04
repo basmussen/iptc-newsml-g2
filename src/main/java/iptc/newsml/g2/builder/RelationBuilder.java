@@ -2,7 +2,6 @@ package iptc.newsml.g2.builder;
 
 import iptc.newsml.g2.model.Broader;
 import iptc.newsml.g2.model.Narrower;
-import iptc.newsml.g2.model.Qcode;
 import iptc.newsml.g2.model.Related;
 import iptc.newsml.g2.model.Relation;
 import iptc.newsml.g2.model.SameAs;
@@ -17,7 +16,7 @@ import iptc.newsml.g2.model.SameAs;
 public class RelationBuilder
 {
 
-    private Qcode qcode;
+    private QcodeBuilder qcode;
 
     private Relation obj;
 
@@ -58,13 +57,19 @@ public class RelationBuilder
         this.obj = obj;
     }
 
-    public RelationBuilder qcode(Qcode val)
+    public RelationBuilder qcode(String val)
+    {
+        this.qcode = QcodeBuilder.qcode().qcode(val);
+        return this;
+    }
+
+    public RelationBuilder qcode(QcodeBuilder val)
     {
         this.qcode = val;
         return this;
     }
 
-    public Qcode getQcode()
+    public QcodeBuilder getQcode()
     {
         return qcode;
     }
@@ -74,7 +79,10 @@ public class RelationBuilder
      */
     public Relation build()
     {
-        obj.setQcode(qcode);
+        if (qcode != null)
+        {
+            obj.setQcode(qcode.build());
+        }
 
         return obj;
     }

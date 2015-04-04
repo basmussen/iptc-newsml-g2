@@ -8,7 +8,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * Subject Model Object
@@ -16,6 +18,8 @@ import javax.xml.bind.annotation.XmlElement;
  * @see <a
  *      href="http://www.iptc.org/std/NewsML-G2/2.19/specification/XML-Schema-Doc-Power/Subject.html">Subject</a>
  */
+@XmlType(propOrder =
+{ "name", "broader", "narrower", "sameAs", "related" })
 public class Subject implements Serializable, Cloneable
 {
     private static final long serialVersionUID = 1L;
@@ -29,7 +33,7 @@ public class Subject implements Serializable, Cloneable
     private String qcode;
 
     @NotNull
-    private Set<Name> names = new HashSet<Name>();
+    private Set<Name> name = new HashSet<Name>();
 
     @NotNull
     private Set<Relation> broader = new HashSet<Relation>();
@@ -47,7 +51,7 @@ public class Subject implements Serializable, Cloneable
     {
     }
 
-    @XmlElement()
+    @XmlAttribute()
     public String getType()
     {
         return type;
@@ -59,7 +63,7 @@ public class Subject implements Serializable, Cloneable
 
     }
 
-    @XmlElement()
+    @XmlAttribute()
     public String getQcode()
     {
         return qcode;
@@ -72,14 +76,14 @@ public class Subject implements Serializable, Cloneable
     }
 
     @XmlElement()
-    public Set<Name> getNames()
+    public Set<Name> getName()
     {
-        return names;
+        return name;
     }
 
-    public void setNames(Set<Name> names)
+    public void setName(Set<Name> name)
     {
-        this.names = names;
+        this.name = name;
 
     }
 

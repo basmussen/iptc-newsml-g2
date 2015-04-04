@@ -31,7 +31,8 @@ import iptc.newsml.g2.model.Qcode;
  */
 public class QcodeBuilder
 {
-
+    // TODO uri
+    // TODO schemeUri
     private String qcode;
 
     /**

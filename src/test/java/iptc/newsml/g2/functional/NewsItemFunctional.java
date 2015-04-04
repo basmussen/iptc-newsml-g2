@@ -20,16 +20,17 @@ package iptc.newsml.g2.functional;
  * #L%
  */
 
-
 import static iptc.common.builder.CalendarBuilder.*;
+import static iptc.newsml.g2.builder.AuthorBuilder.*;
 import static iptc.newsml.g2.builder.CatalogRefBuilder.*;
 import static iptc.newsml.g2.builder.ContentMetaBuilder.*;
 import static iptc.newsml.g2.builder.ItemMetaBuilder.*;
+import static iptc.newsml.g2.builder.NameBuilder.*;
 import static iptc.newsml.g2.builder.NewsItemBuilder.*;
 import static iptc.newsml.g2.builder.QcodeBuilder.*;
-import static iptc.newsml.g2.builder.AuthorBuilder.*;
+import static iptc.newsml.g2.builder.RelationBuilder.*;
+import static iptc.newsml.g2.builder.SubjectBuilder.*;
 import iptc.common.xml.NewsMLG2;
-import iptc.newsml.g2.builder.AuthorBuilder;
 import iptc.newsml.g2.builder.ContentMetaBuilder;
 import iptc.newsml.g2.builder.ItemMetaBuilder;
 import iptc.newsml.g2.builder.NewsItemBuilder;
@@ -72,6 +73,9 @@ public class NewsItemFunctional
         contentMetadata.urgency(2);
         contentMetadata.creator(creator().uri("http://www.example.com/staff/mjameson"));
         contentMetadata.contributor(contributor().uri("http://www.example.com/staff/mjameson"));
+
+        contentMetadata.addSubject(subject().type("cpnat:abstract").qcode("medtop:04000000")
+                .addName(name().lang("de").role("nrol:full").value("Arbeitsmarkt")).addBroader(broader().qcode("medtop:04000000")));
 
         newsItem.contentMeta(contentMetadata);
 

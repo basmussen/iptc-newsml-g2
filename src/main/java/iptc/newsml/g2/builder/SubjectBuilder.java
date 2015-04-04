@@ -76,7 +76,7 @@ public class SubjectBuilder
         return this;
     }
 
-    public SubjectBuilder addNames(NameBuilder val)
+    public SubjectBuilder addName(NameBuilder val)
     {
         this.getNames().add(val);
         return this;
@@ -154,7 +154,7 @@ public class SubjectBuilder
         {
             for (NameBuilder item : names)
             {
-                obj.getNames().add(item.build());
+                obj.getName().add(item.build());
             }
         }
         if (broader != null)
