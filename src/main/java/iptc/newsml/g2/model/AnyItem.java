@@ -79,7 +79,7 @@ public class AnyItem implements Serializable, Cloneable
     {
         this.itemMeta = itemMeta;
     }
-    
+
     @XmlElement()
     public ItemMeta getItemMeta()
     {
@@ -146,7 +146,7 @@ public class AnyItem implements Serializable, Cloneable
 
     }
 
-    @XmlAttribute()
+    @XmlAttribute(namespace = "http://www.w3.org/XML/1998/namespace")
     public String getLang()
     {
         return lang;
