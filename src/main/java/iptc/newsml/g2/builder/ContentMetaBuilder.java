@@ -23,7 +23,7 @@ package iptc.newsml.g2.builder;
 import iptc.common.builder.CalendarBuilder;
 import iptc.newsml.g2.model.ContentMeta;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
@@ -35,14 +35,15 @@ import java.util.Set;
  */
 public class ContentMetaBuilder
 {
-
     private Integer urgency;
     private CalendarBuilder contentCreated;
     private CalendarBuilder contentModified;
     private AuthorBuilder creator;
     private AuthorBuilder contributor;
-    private Set<SubjectBuilder> subject = new HashSet<>();
-    private Set<KeywordBuilder> keyword = new HashSet<KeywordBuilder>();
+    private Set<SubjectBuilder> subject = new LinkedHashSet<>();
+    private SluglineBuilder slugline;
+    private HeadlineBuilder headline;
+    private Set<KeywordBuilder> keyword = new LinkedHashSet<KeywordBuilder>();
 
     /**
      * Static factory method for ContentMetadata
@@ -98,6 +99,18 @@ public class ContentMetaBuilder
         return this;
     }
 
+    public ContentMetaBuilder slugline(SluglineBuilder val)
+    {
+        this.slugline = val;
+        return this;
+    }
+
+    public ContentMetaBuilder headline(HeadlineBuilder val)
+    {
+        this.headline = val;
+        return this;
+    }
+
     public ContentMetaBuilder keyword(Set<KeywordBuilder> val)
     {
         this.keyword = val;
@@ -128,6 +141,16 @@ public class ContentMetaBuilder
     public Set<SubjectBuilder> getSubject()
     {
         return subject;
+    }
+
+    public SluglineBuilder getSlugline()
+    {
+        return slugline;
+    }
+
+    public HeadlineBuilder getHeadline()
+    {
+        return headline;
     }
 
     public Set<KeywordBuilder> getKeyword()
@@ -167,6 +190,14 @@ public class ContentMetaBuilder
             {
                 obj.getSubject().add(item.build());
             }
+        }
+        if (slugline != null)
+        {
+            obj.setSlugline(slugline.build());
+        }
+        if (headline != null)
+        {
+            obj.setHeadline(headline.build());
         }
         if (keyword != null)
         {

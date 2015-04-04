@@ -30,6 +30,8 @@ import static iptc.newsml.g2.builder.NewsItemBuilder.*;
 import static iptc.newsml.g2.builder.QcodeBuilder.*;
 import static iptc.newsml.g2.builder.RelationBuilder.*;
 import static iptc.newsml.g2.builder.SubjectBuilder.*;
+import static iptc.newsml.g2.builder.SluglineBuilder.*;
+import static iptc.newsml.g2.builder.HeadlineBuilder.*;
 import static iptc.helper.TestHelper.*;
 import iptc.common.xml.NewsMLG2;
 import iptc.helper.TestHelper;
@@ -81,8 +83,11 @@ public class NewsItemFunctional
                 .addName(name().lang("de").role("nrol:full").value("Arbeitsmarkt")).addBroader(broader().qcode("medtop:04000000")));
 
         // TODO add support <genre qcode="genre:interview">
-        // TODO add support <slugline>
-        // TODO add support <headline>
+        contentMetadata.slugline(slugline().value("US-Finance"));
+
+        // FIXME blocked by: @XmlValue is not allowed on a class that derives
+        // another class. See Headline.java
+        // contentMetadata.headline(headline().value("Must be well"));
 
         newsItem.contentMeta(contentMetadata);
 

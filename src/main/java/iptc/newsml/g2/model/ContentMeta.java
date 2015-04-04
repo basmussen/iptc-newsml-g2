@@ -37,9 +37,9 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlType(propOrder =
-{ "urgency", "contentCreated", "contentModified", "keyword", "creator", "contributor", "subject" })
+{ "urgency", "contentCreated", "contentModified", "keyword", "creator", "contributor", "subject", "slugline", "headline" })
 // TODO add support
-// "language", "subject", "slugline", "headline", "description", "", "", "", ""
+// "language", "subject", "description", "", "", "", ""
 public class ContentMeta implements Serializable, Cloneable
 {
     private static final long serialVersionUID = 1L;
@@ -57,6 +57,10 @@ public class ContentMeta implements Serializable, Cloneable
 
     @NotNull
     private Set<Subject> subject = new LinkedHashSet<Subject>();
+
+    private Slugline slugline;
+
+    private Headline headline;
 
     @NotNull
     private Set<Keyword> keyword = new LinkedHashSet<Keyword>();
@@ -130,6 +134,28 @@ public class ContentMeta implements Serializable, Cloneable
     public Set<Subject> getSubject()
     {
         return subject;
+    }
+
+    public void setSlugline(Slugline slugline)
+    {
+        this.slugline = slugline;
+    }
+
+    @XmlElement()
+    public Slugline getSlugline()
+    {
+        return slugline;
+    }
+
+    public void setHeadline(Headline headline)
+    {
+        this.headline = headline;
+    }
+
+    @XmlElement()
+    public Headline getHeadline()
+    {
+        return headline;
     }
 
     @XmlElement()
