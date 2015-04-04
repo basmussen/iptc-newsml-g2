@@ -46,6 +46,12 @@ public class QcodeBuilder
     {
     }
 
+    public QcodeBuilder pubStatusUsable()
+    {
+        this.qcode = "stat:usable";
+        return this;
+    }
+
     public QcodeBuilder qcode(String val)
     {
         this.qcode = val;

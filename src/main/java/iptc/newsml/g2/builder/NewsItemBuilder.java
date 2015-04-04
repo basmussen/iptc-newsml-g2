@@ -158,6 +158,8 @@ public class NewsItemBuilder extends AnyItemBuilder
     public NewsItem build() throws Exception
     {
         NewsItem obj = new NewsItem();
+        super.build(obj);
+
         if (contentMeta != null)
         {
             obj.setContentMeta(contentMeta.build());

@@ -20,8 +20,8 @@ package iptc.newsml.g2.builder;
  * #L%
  */
 
+import iptc.common.builder.CalendarBuilder;
 import iptc.newsml.g2.model.ItemMeta;
-import java.util.Calendar;
 
 /**
  * ItemMetadata Model Builder
@@ -33,9 +33,9 @@ import java.util.Calendar;
 public class ItemMetaBuilder
 {
 
-    private Calendar versionCreated;
-    private Calendar firstCreated;
-    private Calendar embargoed;
+    private iptc.common.builder.CalendarBuilder versionCreated;
+    private iptc.common.builder.CalendarBuilder firstCreated;
+    private iptc.common.builder.CalendarBuilder embargoed;
 
     private QcodeBuilder itemClass;
     private QcodeBuilder pubStatus;
@@ -47,7 +47,7 @@ public class ItemMetaBuilder
     /**
      * Static factory method for ItemMetadata
      */
-    public static ItemMetaBuilder itemMetadata()
+    public static ItemMetaBuilder itemMeta()
     {
         return new ItemMetaBuilder();
     }
@@ -56,19 +56,19 @@ public class ItemMetaBuilder
     {
     }
 
-    public ItemMetaBuilder versionCreated(Calendar val)
+    public ItemMetaBuilder versionCreated(CalendarBuilder val)
     {
         this.versionCreated = val;
         return this;
     }
 
-    public ItemMetaBuilder firstCreated(Calendar val)
+    public ItemMetaBuilder firstCreated(CalendarBuilder val)
     {
         this.firstCreated = val;
         return this;
     }
 
-    public ItemMetaBuilder embargoed(Calendar val)
+    public ItemMetaBuilder embargoed(CalendarBuilder val)
     {
         this.embargoed = val;
         return this;
@@ -110,17 +110,17 @@ public class ItemMetaBuilder
         return this;
     }
 
-    public Calendar getVersionCreated()
+    public CalendarBuilder getVersionCreated()
     {
         return versionCreated;
     }
 
-    public Calendar getFirstCreated()
+    public CalendarBuilder getFirstCreated()
     {
         return firstCreated;
     }
 
-    public Calendar getEmbargoed()
+    public CalendarBuilder getEmbargoed()
     {
         return embargoed;
     }
@@ -157,8 +157,9 @@ public class ItemMetaBuilder
 
     /**
      * @return new ItemMetadata instance
+     * @throws Exception
      */
-    public ItemMeta build()
+    public ItemMeta build() throws Exception
     {
         ItemMeta obj = new ItemMeta();
         if (itemClass != null)
@@ -186,9 +187,18 @@ public class ItemMetaBuilder
             obj.setService(service.build());
         }
 
-        obj.setVersionCreated(versionCreated);
-        obj.setFirstCreated(firstCreated);
-        obj.setEmbargoed(embargoed);
+        if (versionCreated != null)
+        {
+            obj.setVersionCreated(versionCreated.build());
+        }
+        if (firstCreated != null)
+        {
+            obj.setFirstCreated(firstCreated.build());
+        }
+        if (embargoed != null)
+        {
+            obj.setEmbargoed(embargoed.build());
+        }
 
         return obj;
     }

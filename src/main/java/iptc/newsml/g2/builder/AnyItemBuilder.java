@@ -32,7 +32,7 @@ import java.util.Set;
  *      href="http://www.iptc.org/std/NewsML-G2/2.19/specification/XML-Schema-Doc-Power/AnyItem.html">AnyItem</a>
  * @see AnyItem
  */
-public class AnyItemBuilder
+public abstract class AnyItemBuilder
 {
 
     private Set<CatalogRefBuilder> catalogRef = new HashSet<CatalogRefBuilder>();
@@ -50,10 +50,11 @@ public class AnyItemBuilder
     /**
      * Static factory method for AnyItem
      */
-    public static AnyItemBuilder anyItem()
-    {
-        return new AnyItemBuilder();
-    }
+    // TODO check refactoring
+    // public static AnyItemBuilder anyItem()
+    // {
+    // return new AnyItemBuilder();
+    // }
 
     public AnyItemBuilder()
     {
@@ -170,7 +171,15 @@ public class AnyItemBuilder
      */
     public AnyItem build() throws Exception
     {
-        AnyItem obj = new AnyItem();
+        return build(new AnyItem());
+    }
+
+    /**
+     * @return map by given AnyItem instance
+     * @throws Exception
+     */
+    public AnyItem build(AnyItem obj) throws Exception
+    {
         if (catalogRef != null)
         {
             for (CatalogRefBuilder item : catalogRef)
