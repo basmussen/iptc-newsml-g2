@@ -20,7 +20,6 @@ package iptc.common.builder;
  * #L%
  */
 
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -88,7 +87,7 @@ public class CalendarBuilder
 
         Calendar cal = Calendar.getInstance(tz, locale);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("YYYY-DD-MM HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("YYYY-DD-MM HH:mm:ss", locale);
 
         if (time == null)
         {
