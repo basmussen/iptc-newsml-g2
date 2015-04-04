@@ -20,19 +20,19 @@ package iptc.newsml.g2.builder;
  * #L%
  */
 
-import iptc.newsml.g2.model.NewsItem;
+import iptc.newsml.g2.model.AnyItem;
 
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * NewsItem Model Builder
+ * AnyItem Model Builder
  * 
  * @see <a
- *      href="http://www.iptc.org/std/NewsML-G2/2.19/specification/XML-Schema-Doc-Power/NewsItem.html">NewsItem</a>
- * @see NewsItem
+ *      href="http://www.iptc.org/std/NewsML-G2/2.19/specification/XML-Schema-Doc-Power/AnyItem.html">AnyItem</a>
+ * @see AnyItem
  */
-public class NewsItemBuilder extends AnyItemBuilder
+public class AnyItemBuilder
 {
 
     private Set<CatalogRefBuilder> catalogRef = new HashSet<CatalogRefBuilder>();
@@ -40,74 +40,73 @@ public class NewsItemBuilder extends AnyItemBuilder
     private String standardversion;
     private String conformance;
     private String guid;
+    private Integer version;
     private String lang;
     private String dir;
 
-    private ContentMetadataBuilder contentMeta;
-
     /**
-     * Static factory method for NewsItem
+     * Static factory method for AnyItem
      */
-    public static NewsItemBuilder newsItem()
+    public static AnyItemBuilder anyItem()
     {
-        return new NewsItemBuilder();
+        return new AnyItemBuilder();
     }
 
-    public NewsItemBuilder()
+    public AnyItemBuilder()
     {
     }
 
-    public NewsItemBuilder catalogRef(Set<CatalogRefBuilder> val)
+    public AnyItemBuilder catalogRef(Set<CatalogRefBuilder> val)
     {
         this.catalogRef = val;
         return this;
     }
 
-    public NewsItemBuilder standard(String val)
+    public AnyItemBuilder standard(String val)
     {
         this.standard = val;
         return this;
     }
 
-    public NewsItemBuilder standardversion(String val)
+    public AnyItemBuilder standardversion(String val)
     {
         this.standardversion = val;
         return this;
     }
 
-    public NewsItemBuilder conformance(String val)
+    public AnyItemBuilder conformance(String val)
     {
         this.conformance = val;
         return this;
     }
 
-    public NewsItemBuilder guid(String val)
+    public AnyItemBuilder guid(String val)
     {
         this.guid = val;
         return this;
     }
 
-    public NewsItemBuilder lang(String val)
+    public AnyItemBuilder guid(Integer val)
+    {
+        this.version = val;
+        return this;
+    }
+
+    public AnyItemBuilder lang(String val)
     {
         this.lang = val;
         return this;
     }
 
-    public NewsItemBuilder dir(String val)
+    public AnyItemBuilder dir(String val)
     {
         this.dir = val;
         return this;
     }
 
-    public NewsItemBuilder addCatalogRef(CatalogRefBuilder val)
+    public AnyItemBuilder addCatalogRef(CatalogRefBuilder val)
     {
         this.getCatalogRef().add(val);
-        return this;
-    }
-
-    public NewsItemBuilder contentMeta(ContentMetadataBuilder contentMeta)
-    {
-        this.contentMeta = contentMeta;
         return this;
     }
 
@@ -136,6 +135,11 @@ public class NewsItemBuilder extends AnyItemBuilder
         return guid;
     }
 
+    public Integer getVersion()
+    {
+        return version;
+    }
+
     public String getLang()
     {
         return lang;
@@ -146,22 +150,13 @@ public class NewsItemBuilder extends AnyItemBuilder
         return dir;
     }
 
-    public ContentMetadataBuilder getContentMeta()
-    {
-        return contentMeta;
-    }
-
     /**
-     * @return new NewsItem instance
+     * @return new AnyItem instance
      * @throws Exception
      */
-    public NewsItem build() throws Exception
+    public AnyItem build() throws Exception
     {
-        NewsItem obj = new NewsItem();
-        if (contentMeta != null)
-        {
-            obj.setContentMeta(contentMeta.build());
-        }
+        AnyItem obj = new AnyItem();
 
         if (catalogRef != null)
         {
@@ -174,6 +169,7 @@ public class NewsItemBuilder extends AnyItemBuilder
         obj.setStandardversion(standardversion);
         obj.setConformance(conformance);
         obj.setGuid(guid);
+        obj.setVersion(version);
         obj.setLang(lang);
         obj.setDir(dir);
 

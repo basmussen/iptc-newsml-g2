@@ -20,7 +20,6 @@ package iptc.common.builder;
  * #L%
  */
 
-
 import static iptc.common.builder.CalendarBuilder.calendar;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
