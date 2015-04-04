@@ -25,6 +25,7 @@ import java.util.Calendar;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+import javax.security.sasl.AuthorizeCallback;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
@@ -37,7 +38,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 
 @XmlType(propOrder =
-{ "urgency", "contentCreated", "contentModified", "keyword" })
+{ "urgency", "contentCreated", "contentModified", "keyword", "creator", "contributor" })
 // TODO add support
 // "language", "subject", "slugline", "headline", "description", "", "", "", ""
 public class ContentMeta implements Serializable, Cloneable
@@ -50,6 +51,10 @@ public class ContentMeta implements Serializable, Cloneable
     private Calendar contentCreated;
 
     private Calendar contentModified;
+
+    private Author creator;
+
+    private Author contributor;
 
     @NotNull
     private Set<Keyword> keyword = new LinkedHashSet<Keyword>();
@@ -79,7 +84,6 @@ public class ContentMeta implements Serializable, Cloneable
     public void setContentCreated(Calendar contentCreated)
     {
         this.contentCreated = contentCreated;
-
     }
 
     @XmlElement(nillable = true)
@@ -91,7 +95,28 @@ public class ContentMeta implements Serializable, Cloneable
     public void setContentModified(Calendar contentModified)
     {
         this.contentModified = contentModified;
+    }
 
+    public void setCreator(Author creator)
+    {
+        this.creator = creator;
+    }
+
+    @XmlElement()
+    public Author getCreator()
+    {
+        return creator;
+    }
+
+    public void setContributor(Author contributor)
+    {
+        this.contributor = contributor;
+    }
+
+    @XmlElement()
+    public Author getContributor()
+    {
+        return contributor;
     }
 
     @XmlElement()

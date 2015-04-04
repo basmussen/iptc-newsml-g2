@@ -39,6 +39,8 @@ public class ContentMetaBuilder
     private Integer urgency;
     private CalendarBuilder contentCreated;
     private CalendarBuilder contentModified;
+    private AuthorBuilder creator;
+    private AuthorBuilder contributor;
     private Set<KeywordBuilder> keyword = new HashSet<KeywordBuilder>();
 
     /**
@@ -68,6 +70,18 @@ public class ContentMetaBuilder
     public ContentMetaBuilder contentModified(CalendarBuilder val)
     {
         this.contentModified = val;
+        return this;
+    }
+
+    public ContentMetaBuilder creator(AuthorBuilder val)
+    {
+        this.creator = val;
+        return this;
+    }
+
+    public ContentMetaBuilder contributor(AuthorBuilder val)
+    {
+        this.contributor = val;
         return this;
     }
 
@@ -117,12 +131,18 @@ public class ContentMetaBuilder
         {
             obj.setContentCreated(contentCreated.build());
         }
-
         if (contentModified != null)
         {
             obj.setContentModified(contentModified.build());
         }
-
+        if (creator != null)
+        {
+            obj.setCreator(creator.build());
+        }
+        if (contributor != null)
+        {
+            obj.setContributor(contributor.build());
+        }
         if (keyword != null)
         {
             for (KeywordBuilder item : keyword)

@@ -6,7 +6,9 @@ import static iptc.newsml.g2.builder.ContentMetaBuilder.*;
 import static iptc.newsml.g2.builder.ItemMetaBuilder.*;
 import static iptc.newsml.g2.builder.NewsItemBuilder.*;
 import static iptc.newsml.g2.builder.QcodeBuilder.*;
+import static iptc.newsml.g2.builder.AuthorBuilder.*;
 import iptc.common.xml.NewsMLG2;
+import iptc.newsml.g2.builder.AuthorBuilder;
 import iptc.newsml.g2.builder.ContentMetaBuilder;
 import iptc.newsml.g2.builder.ItemMetaBuilder;
 import iptc.newsml.g2.builder.NewsItemBuilder;
@@ -47,6 +49,8 @@ public class NewsItemFunctional
         contentMetadata.contentCreated(calendar().date("2015-01-15"));
         contentMetadata.contentModified(calendar().date("2015-01-15"));
         contentMetadata.urgency(2);
+        contentMetadata.creator(creator().uri("http://www.example.com/staff/mjameson"));
+        contentMetadata.contributor(contributor().uri("http://www.example.com/staff/mjameson"));
 
         newsItem.contentMeta(contentMetadata);
 
