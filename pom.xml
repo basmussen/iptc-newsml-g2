@@ -15,6 +15,23 @@
 			<email>ben.asmussen@gmail.com</email>
 		</developer>
 	</developers>
+	<issueManagement>
+		<system>GitHub</system>
+		<url>https://github.com/basmussen/${project.artifactId}/issues</url>
+	</issueManagement>
+	<organization>
+		<name>Ben Asmussen</name>
+		<url>http://www.ben-asmussen.com</url>
+	</organization>
+	<scm>
+		<url>http://github.com/basmussen/${project.artifactId}.git</url>
+	</scm>
+	<licenses>
+		<license>
+			<name>The Apache Software License, Version 2.0</name>
+			<url>src/license/apache_v2/license.txt</url>
+		</license>
+	</licenses>
 	<dependencies>
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -29,6 +46,15 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>1.7</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -38,6 +64,20 @@
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>license-maven-plugin</artifactId>
+				<configuration>
+					<canUpdateDescription>true</canUpdateDescription>
+					<inceptionYear>2015</inceptionYear>
+					<organizationName><![CDATA[Ben Asmussen <opensource@ben-asmussen.com>]]></organizationName>
+					<licenseName>apache_v2</licenseName>
+					<licenseResolver>${project.baseUri}/src/license</licenseResolver>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
 				</configuration>
 			</plugin>
 		</plugins>
