@@ -88,6 +88,7 @@ public class CalendarBuilder
         Calendar cal = Calendar.getInstance(tz, locale);
 
         SimpleDateFormat sdf = new SimpleDateFormat("YYYY-DD-MM HH:mm:ss", locale);
+        sdf.setTimeZone(tz);
 
         if (time == null)
         {

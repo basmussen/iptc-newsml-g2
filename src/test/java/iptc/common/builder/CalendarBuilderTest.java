@@ -54,10 +54,10 @@ public class CalendarBuilderTest
         Calendar cal = calendar().timzone("GMT").locale(Locale.GERMANY).date("2015-01-01").build();
 
         SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z", Locale.GERMANY);
-        sdf.setCalendar(cal);
+        sdf.setTimeZone(cal.getTimeZone());
         String format = sdf.format(cal.getTime());
 
-        assertEquals("So, 28 Dez 2014 23:00:00 +0000", format);
+        assertEquals("Mo, 29 Dez 2014 00:00:00 +0000", format);
     }
 
     @Test
@@ -66,10 +66,10 @@ public class CalendarBuilderTest
         Calendar cal = calendar().timzone("GMT").locale(Locale.GERMANY).date("2015-01-01").time("06:00:00").build();
 
         SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z", Locale.GERMANY);
-        sdf.setCalendar(cal);
+        sdf.setTimeZone(cal.getTimeZone());
         String format = sdf.format(cal.getTime());
 
-        assertEquals("Mo, 29 Dez 2014 05:00:00 +0000", format);
+        assertEquals("Mo, 29 Dez 2014 06:00:00 +0000", format);
     }
 
 }
