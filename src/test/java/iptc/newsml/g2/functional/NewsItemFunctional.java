@@ -33,6 +33,8 @@ public class NewsItemFunctional
         ItemMetaBuilder itemMeta = itemMeta();
         itemMeta.itemClass(qcode().qcode("ninat:text"));
         itemMeta.versionCreated(calendar().date("2015-01-14"));
+        itemMeta.contentModified(calendar().date("2015-01-15"));
+
         itemMeta.embargoed(calendar().date("2015-01-15"));
         itemMeta.pubStatus(qcode().pubStatusUsable());
         itemMeta.service(qcode().qcode("srv:finance"));

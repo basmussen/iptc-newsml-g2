@@ -22,11 +22,14 @@ package iptc.newsml.g2.model;
 
 import iptc.newsml.g2.model.Qcode;
 import iptc.newsml.g2.model.VersionedString;
+
 import java.io.Serializable;
 import java.lang.Cloneable;
 import java.util.Calendar;
+
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * ItemMetadata Model Object
@@ -34,12 +37,19 @@ import javax.xml.bind.annotation.XmlElement;
  * @see <a
  *      href="http://www.iptc.org/std/NewsML-G2/2.19/specification/XML-Schema-Doc-Power/ItemMetadata.html">ItemMetadata</a>
  */
+@XmlType(propOrder =
+{ "itemClass", "versionCreated", "contentModified", "firstCreated", "embargoed", "pubStatus", "role", "generator", "profile", "service" })
+// TODO add support
+// "provider", "fileName","title", "edNote", "memberOf", "instanceOf", "signal",
+// "altRep", "deliverableOf", "hash", "expires"
 public class ItemMeta implements Serializable, Cloneable
 {
     private static final long serialVersionUID = 1L;
 
     @NotNull
     private Calendar versionCreated;
+
+    private Calendar contentModified;
 
     @NotNull
     private Calendar firstCreated;
@@ -73,6 +83,17 @@ public class ItemMeta implements Serializable, Cloneable
     {
         this.versionCreated = versionCreated;
 
+    }
+
+    @XmlElement()
+    public Calendar getContentModified()
+    {
+        return contentModified;
+    }
+
+    public void setContentModified(Calendar contentModified)
+    {
+        this.contentModified = contentModified;
     }
 
     @XmlElement()

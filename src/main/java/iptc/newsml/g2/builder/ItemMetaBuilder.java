@@ -34,6 +34,7 @@ public class ItemMetaBuilder
 {
 
     private iptc.common.builder.CalendarBuilder versionCreated;
+    private iptc.common.builder.CalendarBuilder contentModified;
     private iptc.common.builder.CalendarBuilder firstCreated;
     private iptc.common.builder.CalendarBuilder embargoed;
 
@@ -59,6 +60,12 @@ public class ItemMetaBuilder
     public ItemMetaBuilder versionCreated(CalendarBuilder val)
     {
         this.versionCreated = val;
+        return this;
+    }
+
+    public ItemMetaBuilder contentModified(CalendarBuilder val)
+    {
+        this.contentModified = val;
         return this;
     }
 
@@ -186,10 +193,13 @@ public class ItemMetaBuilder
         {
             obj.setService(service.build());
         }
-
         if (versionCreated != null)
         {
             obj.setVersionCreated(versionCreated.build());
+        }
+        if (contentModified != null)
+        {
+            obj.setContentModified(contentModified.build());
         }
         if (firstCreated != null)
         {
