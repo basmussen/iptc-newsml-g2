@@ -27,6 +27,7 @@ import java.util.Set;
 
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 /**
  * ContentMetadata Model Object
@@ -34,6 +35,11 @@ import javax.xml.bind.annotation.XmlElement;
  * @see <a
  *      href="http://www.iptc.org/std/NewsML-G2/2.19/specification/XML-Schema-Doc-Power/ContentMetadata.html">ContentMetadata</a>
  */
+
+@XmlType(propOrder =
+{ "urgency", "contentCreated", "contentModified", "keyword" })
+// TODO add support
+// "language", "subject", "slugline", "headline", "description", "", "", "", ""
 public class ContentMeta implements Serializable, Cloneable
 {
     private static final long serialVersionUID = 1L;
