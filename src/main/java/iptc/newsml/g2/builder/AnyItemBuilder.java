@@ -86,7 +86,7 @@ public class AnyItemBuilder
         return this;
     }
 
-    public AnyItemBuilder guid(Integer val)
+    public AnyItemBuilder version(Integer val)
     {
         this.version = val;
         return this;
