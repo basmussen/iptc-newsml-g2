@@ -1,13 +1,13 @@
 package iptc.newsml.g2.builder;
 
 import static iptc.common.builder.CalendarBuilder.*;
-import static iptc.newsml.g2.builder.ContentMetadataBuilder.*;
+import static iptc.newsml.g2.builder.ContentMetaBuilder.*;
 import static iptc.newsml.g2.builder.KeywordBuilder.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.collection.IsCollectionWithSize.*;
 import static org.junit.Assert.*;
 import iptc.common.builder.CalendarBuilder;
-import iptc.newsml.g2.model.ContentMetadata;
+import iptc.newsml.g2.model.ContentMeta;
 
 import org.junit.Test;
 
@@ -17,14 +17,14 @@ public class ContentMetaBuilderTest
     @Test
     public void testBuild() throws Exception
     {
-        ContentMetadata contentMeta = contentMetadata().build();
+        ContentMeta contentMeta = contentMetadata().build();
         assertNotNull(contentMeta);
     }
 
     @Test
     public void testUrgency() throws Exception
     {
-        ContentMetadata contentMeta = contentMetadata().urgency(4).build();
+        ContentMeta contentMeta = contentMetadata().urgency(4).build();
         assertThat(contentMeta.getUrgency(), is(equalTo(4)));
     }
 
@@ -33,7 +33,7 @@ public class ContentMetaBuilderTest
     {
         CalendarBuilder cal = calendar().date("2015-03-15").time("06:00:00");
 
-        ContentMetadata contentMeta = contentMetadata().contentCreated(cal).build();
+        ContentMeta contentMeta = contentMetadata().contentCreated(cal).build();
         assertEquals(cal.build(), contentMeta.getContentCreated());
     }
 
@@ -42,7 +42,7 @@ public class ContentMetaBuilderTest
     {
         CalendarBuilder cal = calendar().date("2015-03-15").time("06:00:00");
 
-        ContentMetadata contentMeta = contentMetadata().contentModified(cal).build();
+        ContentMeta contentMeta = contentMetadata().contentModified(cal).build();
         assertEquals(cal.build(), contentMeta.getContentModified());
     }
 
@@ -52,7 +52,7 @@ public class ContentMetaBuilderTest
         KeywordBuilder keyword1 = keyword().keyword("Sport").rank(1);
         KeywordBuilder keyword2 = keyword().keyword("Sail").rank(2);
 
-        ContentMetadata contentMeta = contentMetadata().addKeyword(keyword1).addKeyword(keyword2).build();
+        ContentMeta contentMeta = contentMetadata().addKeyword(keyword1).addKeyword(keyword2).build();
 
         assertNotNull(contentMeta.getKeyword());
         assertThat(contentMeta.getKeyword(), hasSize(2));

@@ -2,7 +2,7 @@ package iptc.newsml.g2.builder;
 
 import static org.junit.Assert.*;
 import static iptc.newsml.g2.builder.NewsItemBuilder.*;
-import static iptc.newsml.g2.builder.ContentMetadataBuilder.*;
+import static iptc.newsml.g2.builder.ContentMetaBuilder.*;
 import iptc.newsml.g2.model.NewsItem;
 
 import org.junit.Test;

@@ -36,19 +36,19 @@ public class NewsItem extends AnyItem
 {
     private static final long serialVersionUID = 1L;
     @NotNull
-    private ContentMetadata contentMeta;
+    private ContentMeta contentMeta;
 
     public NewsItem()
     {
     }
 
     @XmlElement()
-    public ContentMetadata getContentMeta()
+    public ContentMeta getContentMeta()
     {
         return contentMeta;
     }
 
-    public void setContentMeta(ContentMetadata contentMeta)
+    public void setContentMeta(ContentMeta contentMeta)
     {
         this.contentMeta = contentMeta;
     }

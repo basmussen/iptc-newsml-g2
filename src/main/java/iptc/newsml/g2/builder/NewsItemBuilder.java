@@ -43,7 +43,7 @@ public class NewsItemBuilder extends AnyItemBuilder
     private String lang;
     private String dir;
 
-    private ContentMetadataBuilder contentMeta;
+    private ContentMetaBuilder contentMeta;
 
     /**
      * Static factory method for NewsItem
@@ -105,7 +105,7 @@ public class NewsItemBuilder extends AnyItemBuilder
         return this;
     }
 
-    public NewsItemBuilder contentMeta(ContentMetadataBuilder contentMeta)
+    public NewsItemBuilder contentMeta(ContentMetaBuilder contentMeta)
     {
         this.contentMeta = contentMeta;
         return this;
@@ -146,7 +146,7 @@ public class NewsItemBuilder extends AnyItemBuilder
         return dir;
     }
 
-    public ContentMetadataBuilder getContentMeta()
+    public ContentMetaBuilder getContentMeta()
     {
         return contentMeta;
     }

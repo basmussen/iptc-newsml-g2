@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlElement;
  * @see <a
  *      href="http://www.iptc.org/std/NewsML-G2/2.19/specification/XML-Schema-Doc-Power/ContentMetadata.html">ContentMetadata</a>
  */
-public class ContentMetadata implements Serializable, Cloneable
+public class ContentMeta implements Serializable, Cloneable
 {
     private static final long serialVersionUID = 1L;
 
@@ -48,7 +48,7 @@ public class ContentMetadata implements Serializable, Cloneable
     @NotNull
     private Set<Keyword> keyword = new LinkedHashSet<Keyword>();
 
-    public ContentMetadata()
+    public ContentMeta()
     {
     }
 

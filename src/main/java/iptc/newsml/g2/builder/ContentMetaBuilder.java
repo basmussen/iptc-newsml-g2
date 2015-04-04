@@ -21,7 +21,7 @@ package iptc.newsml.g2.builder;
  */
 
 import iptc.common.builder.CalendarBuilder;
-import iptc.newsml.g2.model.ContentMetadata;
+import iptc.newsml.g2.model.ContentMeta;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -31,9 +31,9 @@ import java.util.Set;
  * 
  * @see <a
  *      href="http://www.iptc.org/std/NewsML-G2/2.19/specification/XML-Schema-Doc-Power/ContentMetadata.html">ContentMetadata</a>
- * @see ContentMetadata
+ * @see ContentMeta
  */
-public class ContentMetadataBuilder
+public class ContentMetaBuilder
 {
 
     private Integer urgency;
@@ -44,40 +44,40 @@ public class ContentMetadataBuilder
     /**
      * Static factory method for ContentMetadata
      */
-    public static ContentMetadataBuilder contentMetadata()
+    public static ContentMetaBuilder contentMetadata()
     {
-        return new ContentMetadataBuilder();
+        return new ContentMetaBuilder();
     }
 
-    public ContentMetadataBuilder()
+    public ContentMetaBuilder()
     {
     }
 
-    public ContentMetadataBuilder urgency(Integer val)
+    public ContentMetaBuilder urgency(Integer val)
     {
         this.urgency = val;
         return this;
     }
 
-    public ContentMetadataBuilder contentCreated(CalendarBuilder val)
+    public ContentMetaBuilder contentCreated(CalendarBuilder val)
     {
         this.contentCreated = val;
         return this;
     }
 
-    public ContentMetadataBuilder contentModified(CalendarBuilder val)
+    public ContentMetaBuilder contentModified(CalendarBuilder val)
     {
         this.contentModified = val;
         return this;
     }
 
-    public ContentMetadataBuilder keyword(Set<KeywordBuilder> val)
+    public ContentMetaBuilder keyword(Set<KeywordBuilder> val)
     {
         this.keyword = val;
         return this;
     }
 
-    public ContentMetadataBuilder addKeyword(KeywordBuilder val)
+    public ContentMetaBuilder addKeyword(KeywordBuilder val)
     {
         this.getKeyword().add(val);
         return this;
@@ -107,9 +107,9 @@ public class ContentMetadataBuilder
      * @return new ContentMetadata instance
      * @throws Exception
      */
-    public ContentMetadata build() throws Exception
+    public ContentMeta build() throws Exception
     {
-        ContentMetadata obj = new ContentMetadata();
+        ContentMeta obj = new ContentMeta();
 
         obj.setUrgency(urgency);
 
