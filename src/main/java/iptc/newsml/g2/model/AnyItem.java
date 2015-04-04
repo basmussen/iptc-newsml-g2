@@ -21,7 +21,7 @@ package iptc.newsml.g2.model;
  */
 
 import java.io.Serializable;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.validation.constraints.NotNull;
@@ -38,7 +38,7 @@ public class AnyItem implements Serializable, Cloneable
 {
     private static final long serialVersionUID = 1L;
 
-    private Set<CatalogRef> catalogRef = new HashSet<CatalogRef>();
+    private Set<CatalogRef> catalogRef = new LinkedHashSet<CatalogRef>();
 
     private ItemMeta itemMeta;
 

@@ -30,20 +30,23 @@ import static iptc.newsml.g2.builder.NewsItemBuilder.*;
 import static iptc.newsml.g2.builder.QcodeBuilder.*;
 import static iptc.newsml.g2.builder.RelationBuilder.*;
 import static iptc.newsml.g2.builder.SubjectBuilder.*;
+import static iptc.helper.TestHelper.*;
 import iptc.common.xml.NewsMLG2;
+import iptc.helper.TestHelper;
 import iptc.newsml.g2.builder.ContentMetaBuilder;
 import iptc.newsml.g2.builder.ItemMetaBuilder;
 import iptc.newsml.g2.builder.NewsItemBuilder;
 
 import java.io.StringWriter;
 
+import org.custommonkey.xmlunit.XMLAssert;
 import org.junit.Test;
 
 public class NewsItemFunctional
 {
 
     @Test
-    public void testNewsItem() throws Exception
+    public void testNewsItemUseCase001() throws Exception
     {
         NewsItemBuilder newsItem = newsItem();
 
@@ -73,15 +76,25 @@ public class NewsItemFunctional
         contentMetadata.urgency(2);
         contentMetadata.creator(creator().uri("http://www.example.com/staff/mjameson"));
         contentMetadata.contributor(contributor().uri("http://www.example.com/staff/mjameson"));
-
+        // <infoSource uri="http://www.example.com" />
         contentMetadata.addSubject(subject().type("cpnat:abstract").qcode("medtop:04000000")
                 .addName(name().lang("de").role("nrol:full").value("Arbeitsmarkt")).addBroader(broader().qcode("medtop:04000000")));
+
+        // TODO add support <genre qcode="genre:interview">
+        // TODO add support <slugline>
+        // TODO add support <headline>
 
         newsItem.contentMeta(contentMetadata);
 
         StringWriter writer = new StringWriter();
         NewsMLG2.aProcessor().toXml(newsItem.build(), writer);
 
-        System.out.println(writer);
+        String xml = writer.toString();
+
+        System.out.println(xml);
+
+        String loadFunctionalResource = loadFunctionalResource(TestHelper.STORY_NEWSITEM, "001");
+        XMLAssert.assertXMLEqual(xml, loadFunctionalResource);
     }
+
 }

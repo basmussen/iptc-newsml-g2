@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<newsItem conformance="Power" guid="urn:newsml:acmenews.com:20141121:US-FINANCE-FED" xml:lang="de" standard="NewsML-G2" standardversion="2.19" version="1">
+    <catalogRef href="http://www.iptc.org/std/catalog/catalog.IPTC-G2-Standards_25.xml"/>
+    <catalogRef href="http://www.example.com/newsml-g2/catalog.enews_2.xml"/>
+    <itemMeta>
+        <itemClass qcode="ninat:text"/>
+        <versionCreated>2014-12-29T00:00:00+01:00</versionCreated>
+        <contentModified>2014-12-29T00:00:00+01:00</contentModified>
+        <embargoed>2014-12-29T00:00:00+01:00</embargoed>
+        <pubStatus qcode="stat:usable"/>
+        <service qcode="srv:finance"/>
+    </itemMeta>
+    <contentMeta>
+        <urgency>2</urgency>
+        <contentCreated>2014-12-29T00:00:00+01:00</contentCreated>
+        <contentModified>2014-12-29T00:00:00+01:00</contentModified>
+        <creator uri="http://www.example.com/staff/mjameson"/>
+        <contributor uri="http://www.example.com/staff/mjameson"/>
+        <subject qcode="medtop:04000000" type="cpnat:abstract">
+            <name xml:lang="de" role="nrol:full">
+                <value>Arbeitsmarkt</value>
+            </name>
+            <broader>
+                <qcode qcode="medtop:04000000"/>
+            </broader>
+        </subject>
+    </contentMeta>
+</newsItem>
+
